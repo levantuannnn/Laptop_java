@@ -1,0 +1,378 @@
+*{
+     box-sizing: border-box;
+     padding: 0;
+     margin: 0;
+}
+ .create__gio{
+       color: aliceblue;
+       font-size: 25px;
+       font-weight: bold;
+       line-height: 40px;
+       text-align: center;
+      
+ }
+ .create__thoigian{
+       position: absolute;
+       width: 150px;
+       height: 40px;
+       border-radius: 20px;
+       top:50px;
+       right: 5px;
+       background-color: #0a0606;
+ }
+.header__img img{
+      width: 100%;
+      height: 100%;
+}
+.header__day{
+    width: 100%;
+    height: 50px;
+     margin-top: 30px;
+     display: flex;
+     justify-content: center;
+     
+}
+.laptop__element__text{
+       text-align: center;
+       font-size: 15px;
+       color: #0a0606;
+       font-weight: 700;
+}
+.nav{
+      margin-top: 20px;
+      width: 1200px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      margin: auto; 
+      background-color: brown;
+      border-radius: 20px 20px;
+      margin-bottom: 20px;
+}
+.nav__element{
+      margin-top: 10px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-evenly;
+}
+.nav__element li{
+      list-style: none;
+      color: 35px;
+      font-weight: bold;
+
+      color: aliceblue;
+}
+.create{
+      position: relative;
+      margin-top: 20px;
+      width: 1300px;
+      height: 500px;
+      margin: auto;
+      border-radius: 10px;
+      background-color: brown;
+      overflow:hidden;
+}
+.create__element{
+      width: 100%;
+      margin-top: 20px;
+      width: max-content;
+      height: 400px;
+      display: flex;
+      margin: auto;
+      justify-content: center;
+}
+.danhmuc{
+      width: 100%;
+      height: 50px;
+      
+}
+.danhmuc__element{
+      display: flex;
+      width: 500px;
+      margin: auto;
+    
+}
+.danhmuc__element button{
+       margin-right: 20px;
+       width: 200px;
+       font-size: 20px;
+       height: 30px;
+       white-space: nowrap;
+       border: 1px solid rgb(170, 45, 45);
+}
+.create__element__way__text{
+     text-align: center;
+     color: rgb(192, 185, 185);
+     font-size: 25px;
+}
+.create__element__way__gia {
+      color: brown;
+      font-size: 25px;
+      white-space: nowrap ;
+      display: inline-block;
+      
+}
+.create__element__way__gia p{
+      display: inline;
+      margin-left: 25px;
+}
+
+.danhmuc__element li{
+      color: aliceblue;
+      font-size: 15px;
+}
+.create__elemnent__way__chi{
+      position: absolute;
+      top:5px;
+      left: 0px;
+      border-radius: 20px;
+      color: aliceblue;
+      font-size: 25px;
+      background-color: brown;
+}
+ 
+.button{
+      width: 100%;
+      position: absolute;
+      top:50%;
+      display: flex;
+      justify-content: space-between;
+}
+.button .next, .button .prev{
+      font-size: 50px;
+      color: #0a0606;
+      border-radius: 50%;
+      background-color: #999;
+}
+.create__text{
+      padding-top: 30px;
+      color: aliceblue;
+      font-size: 35px;
+      font-weight: bold;
+      text-align: center;
+      animation: tostring 2s infinite;
+}
+@keyframes tostring{
+        from{
+             color: #0f0b0b;
+        }
+        to{
+             color: rgb(181, 173, 201);
+        }
+}
+.create__element__way{
+      opacity: 1;
+      position: relative; 
+      margin-top: 20px;
+      margin-right: 5px;
+      /* width: 300px;
+      height: 380px; */
+      background-color: black;
+}
+.create__element__way:hover{
+      transform: scale(1.02);
+}
+.create__element__way img{
+      width: 300px;
+      height: 300px;
+      margin-right: 20px;
+}
+.laptop__element__text__gia{
+       color: rgb(15, 15, 15);
+       font-weight: bold;
+       font-size: 25px;
+       text-align: center;
+       border-radius: 20px;
+}
+.Mua_sv{
+       width: 100px;
+       height: 40px;
+       color: aliceblue;
+       font-weight: bold;
+       font-size: 25px;
+       background-color: red;
+       margin-left: 50px;
+}
+.slider{
+      width: 1000px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      margin: auto;
+     overflow: hidden;
+}
+.slider__img{
+     
+      display: flex;
+      width: max-content;
+     
+}
+.slider__img img{
+    width: 500px; 
+
+}
+body{
+     width: 100vw;
+     height: 100vh;
+     background-color: rgb(1, 15, 15);
+}
+.header{
+     width: 100%;
+     height: 0p5x;
+     display: flex;
+     justify-content: space-evenly;
+     background-color: rgb(160, 30, 30);
+     margin-bottom: 20px;
+}
+ 
+.header__day__element{
+     width: 1200px;
+     height: 300px;
+}
+.header__day__element__way{
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+}
+.header__day__element__way  {
+    display: flex;
+    justify-content: space-around;
+}
+.header__day__element__way a{
+     text-decoration: none;
+     margin-left: 30px;
+     font-size: 25px;
+     color: aliceblue;
+     font-weight: bold;
+     white-space: nowrap;
+}
+ .footer{
+       margin-top: 50px;
+       width: 100%;
+       height: 300px;
+       background-color: aliceblue;
+        
+ }
+ .footer__element{
+       position: relative;
+       display: flex;
+       justify-content: space-evenly;
+ }
+ .facebook__mes{
+       display: flex;
+       margin-top: 10px;
+       right: auto;
+       right: 180px;
+       position: relative;
+ }
+ .fa-square-facebook{
+       position: absolute;
+       right: 5px;
+ }
+ .facebook__mes i{
+       position: absolute;
+       margin-right: 5px;
+       font-size: 25px;
+       background-color: #0a0606;
+ }
+ .footer__element{
+      font-size: 15px;
+ }
+ .footer__element__chi input{
+       width: 400px;
+       height: 35px;
+       margin-top: 10px;
+ }
+ .footer__element__chi input:hover{
+       border: 2px solid red;
+ }
+ .footer__element__chi .footer__dk{
+      margin-top: 10px;
+       width: 300px;
+       height: 45px;
+       background-color: #ce3f3f;
+       font-size: 25px;
+       border-radius: 20px;
+       line-height: 45px;
+       text-align: center;
+       color: aliceblue;
+       font-weight: bold;
+ }
+ .footer__dk:hover{
+       background-color: #0a0606;
+ }
+ .footer__element__chi p{
+       margin-top: 10px;
+ }
+.header__day__element__way__input{
+     
+     margin-left: 40px;
+     position: relative;
+}
+.create__element__star{
+      display: flex;
+}
+.element__star{
+     display: inline-block;
+      margin-right: 0px;
+      width: 30x;
+      height: 20px;
+}
+.element__star img{
+      width: 100%;
+      height: 100%;
+      margin-right: 0px;
+}
+.way__danhmuc, .way__xemtai, .way__phone, .way__ganban, .way__tracuu, .way__giohang, .way__dangnhap{
+    position: relative;   
+    margin-left: 30px;
+}
+.laptop{
+      width: 1200px;
+      height: 2000px;
+      display: flex;  
+      margin: auto;
+      flex-direction: column;
+}
+.laptop .laptop__chil{
+      display: flex;
+      width: 100%;
+      height: 400px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+}
+.laptop__element{
+      width: 230px;
+      height: 400px;
+      margin-right: 5px;
+      
+      background-color: aliceblue;
+}
+ .laptop__element:hover{
+       transform: scale(1.02);
+}
+.laptop__chil img{
+      
+      width: 200px;
+      height: 300px;
+}
+i{   
+      position: absolute;
+      top:3px;
+      font-size: 25px;
+      color: aliceblue;
+      right: -30px;
+}
+.header__day__element__way__input input{
+     padding: 7px;
+     width: 300px;
+     background-color: #999;
+}
+.header__day__element__way__input i{
+     background-color: aliceblue;
+     position: absolute;
+     right: 10px;
+     top: 5px;
+     background-color: #999;
+}

@@ -1,0 +1,25 @@
+{
+    "courses": [
+      {
+        "id": 1,
+        "name": "kien thuc can ban"
+      },
+      {
+        "id": 2,
+        "name": "mot minh"
+      },
+      {
+        "id": 3,
+        "name": "kien thuc nang cao"
+      },
+      {
+        "id": 4,
+        "name": "kien thuc chung quy"
+      },
+      {
+        "id": 5,
+        "name": "kien thuc  bai bo"
+      }
+    ]
+  }
+  

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh sách Laptop</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    header {
+      background-color: brown;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    .form-inputs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .form-inputs input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .buttons {
+      margin-bottom: 20px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-right: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .buttons button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #333;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .action-buttons button {
+      background-color: #28a745;
+      margin-right: 5px;
+      width: 100px;
+      height: 50px;
+      font-size: 15px;
+    }
+    .action-buttons button:nth-child(2) {
+      background-color: #dc3545;
+    }
+    .action-buttons button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>QUẢN LÝ LAPTOP</header>
+
+  <div class="form-inputs">
+    <input type="text" class="id" placeholder="ID (cập nhật)"/>
+    <input type="text" class="gia" placeholder="Giá"/>
+    <input type="text" class="ten_laptop" placeholder="Tên Laptop"/>
+  </div>
+
+  <div class="buttons">
+    <button onclick="addevnt()">Thêm</button>
+    <button onclick="getST()">Tải lại</button>
+    <button onclick="updateFromInput()">Cập nhật</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Giá</th>
+        <th>Tên Laptop</th>
+        <th>Hành động</th> 
+        <input type="file" style="padding:30px"> 
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    function getST() {
+      axios.get("http://localhost:8081/laptops/api")
+        .then(response => {
+          const tbody = document.querySelector('.table tbody');
+          const laptops = response.data;
+          tbody.innerHTML = "";
+          laptops.forEach(laptop => {
+            tbody.innerHTML += `
+              <tr>
+                <td>${laptop.id}</td>
+                <td>${laptop.gia}</td>
+                <td>${laptop.tenlaptop}</td>
+                <td class="action-buttons">
+                  <button onclick="update(${laptop.id})">Cập nhật</button>
+                  <button onclick="deleteSv(${laptop.id})">Xóa</button>
+                </td>
+              </tr>`;
+          });
+        })
+        .catch(error => {
+          console.error("Lỗi khi lấy dữ liệu:", error);
+        });
+    }
+
+    function addevnt() {
+      const  st= document.querySelector(".gia").value;
+      const id=document.querySelector(".id").value;
+      const tenlt = document.querySelector(".ten_laptop").value;
+
+      axios.post("http://localhost:8081/laptops/api/add", {
+        id: id,
+        gia: st,
+        tenlaptop: tenlt
+      })
+      .then(() => {
+        console.log({ gia: st, tenLaptop: tenlt });
+
+        alert("Thêm thành công");
+        getST();
+      })
+      .catch(error => {
+        console.log("Thêm thất bại", error);
+      });
+    }
+
+    function deleteSv(id) {
+      axios.delete(`http://localhost:8081/laptops/api/delete/${id}`)
+      .then(() => {
+        alert("Xóa thành công");
+        getST();
+      })
+      .catch(error => {
+        console.log("Xóa thất bại", error);
+      });
+    }
+
+    function update(id) {
+      const laptop = prompt("Nhập tên mới và giá mới (vd: Acer 10000000)", "");
+      if (!laptop) return;
+      const parts = laptop.split(" ");
+      if (parts.length < 2) return alert("Sai định dạng!");
+
+      const tenLaptop = parts.slice(0, -1).join(" ");
+      const gia = parseInt(parts[parts.length - 1]);
+
+      axios.put(`http://localhost:8081/laptops/api/${id}`, {
+        id,
+        gia,
+        tenlaptop
+      })
+      .then(() => {
+        alert("Cập nhật thành công");
+        getST();
+      })
+      .catch(error => {
+        alert("Không thành công", error);
+      });
+    }
+
+    function updateFromInput() {
+      const id = document.querySelector(".id").value;
+      const gia = document.querySelector(".gia").value;
+      const tenlt = document.querySelector(".ten_laptop").value;
+
+      axios.put(`http://localhost:8081/laptops/api/${id}`, {
+        id: parseInt(id),
+        gia: parseInt(gia),
+        tenlaptop: tenlt
+      })
+      .then(() => {
+        alert("Cập nhật thành công");
+        getST();
+      })
+      .catch(error => {
+        alert("Không thành công", error);
+      });
+    }
+
+    getST();
+  </script>
+</body>
+</html>

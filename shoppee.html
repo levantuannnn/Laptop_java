@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map Demo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Bản đồ theo dõi tài xế</h2>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // 1. Tạo bản đồ, trung tâm ở vị trí nào đó
+    var map = L.map('map').setView([10.7769, 106.7009], 13); // Tọa độ Sài Gòn
+
+    // 2. Load tile map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // 3. Tạo icon chiếc xe
+    var xeIcon = L.icon({
+      iconUrl: 'https://cdn-icons-png.flaticon.com/512/854/854894.png',
+      iconSize: [40, 40],
+    });
+
+    // 4. Marker ban đầu
+    var xe = L.marker([10.7769, 106.7009], { icon: xeIcon }).addTo(map);
+
+    // 5. Mô phỏng xe di chuyển
+    let lat = 10.7769;
+    let lng = 106.7009;
+
+    setInterval(() => {
+      lat += 0.0001;
+      lng += 0.0001;
+      xe.setLatLng([lat, lng]);
+    }, 1000);
+  </script>
+</body>
+</html>

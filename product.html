@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .lisder{
+               width: 1000px;
+               height: 600px;
+               margin: auto;
+          }
+          .container{
+             display: flex;
+          }
+          .container_imge{
+              display: flex;
+              flex-direction: column;
+              margin-right: 20px;
+          }
+          .container_imge img{
+             width: 300px;
+             height: 300px;
+             margin-top: 20px;
+          }
+          .container__imge_2{
+             width: 600px;
+             height: 600px;
+          }
+          .container__imge_2 img{ 
+                width: 100%;
+                height: 100%;
+          }
+    </style>
+ </head>
+ <body>
+     <div class="lisder">
+           <div class="container">
+                   <div class="container_imge">
+                         <img src="img_laptop/pexels-caio-67112.jpg" alt="">
+                         <img src="img_laptop/pexels-jibarofoto-2148216.jpg" alt="">
+                   </div>
+                   <div class="container__imge_2">
+                        <img class="chon" src="img_laptop/pexels-kevin-paster-929016-1901388.jpg" alt="">
+                   </div>
+           </div>           
+           
+           
+           <script>
+            let chon=document.querySelector('.container__imge_2 .chon');
+            let img=document.querySelectorAll('.container_imge img');
+            for(let i=0;i<img.length;i++){
+                img[i].addEventListener('click', function(){
+                   chon.setAttribute('src',img[i].getAttribute('src'));
+                })
+            }
+        </script>
+        
+     </div>
+ </body>
+ </html>
